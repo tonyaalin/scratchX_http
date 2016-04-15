@@ -37,7 +37,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'blynk Auth Token %s', 'get_blynk', 'xxxxxxxxxxxxxxxxxx/pin/V10'],
+            ['R', 'blynk Auth Token %s', 'get_blynk', 'e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10'],
             ['R', 'current temperature in city %s', 'get_temp', 'Boston, MA'],
         ]
     };
