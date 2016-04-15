@@ -59,7 +59,7 @@
         blocks: [
             ['R', 'blynk Auth Token %s', 'get_blynk', 'e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10'],
             ['R', 'current temperature in city %s', 'get_temp', 'Boston, MA'],
-            ['R', 'LASS DEVICE= %s PM2.5', 'lass', 'FT1_001'],
+            [' ', 'LASS DEVICE= %s PM2.5', 'lass', 'FT1_001'],
             ['R', 'LASS C', 'lassData.C'],
             ['R', 'LASS H', 'lassData.H'],
             ['R', 'LASS PM25', 'lassData.PM25'],
