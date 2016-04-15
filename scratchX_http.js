@@ -38,10 +38,10 @@
         $.ajax({
               url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id='+location,
               dataType: 'jsonp',
-              success: function( weather_data ) {
+              success: function( lass_data ) {
                   // Got the data - parse it and return the temperature
-                  temperature = weather_data['s_d0'];
-                  callback(temperature);
+                  lasspm = lass_data['s_d0'];
+                  callback(lasspm);
               }
         });
     };
