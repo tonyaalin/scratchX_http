@@ -33,11 +33,24 @@
         });
     };
 
+     ext.get_pm = function(location, callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id='+location,
+              dataType: 'jsonp',
+              success: function( weather_data ) {
+                  // Got the data - parse it and return the temperature
+                  temperature = weather_data['s_d0'];
+                  callback(temperature);
+              }
+        });
+    };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['R', 'blynk Auth Token %s', 'get_blynk', 'e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10'],
             ['R', 'current temperature in city %s', 'get_temp', 'Boston, MA'],
+            ['R', 'LASS DEVICE= %s PM2.5', 'get_pm', 'FT1_001'],
         ]
     };
 
