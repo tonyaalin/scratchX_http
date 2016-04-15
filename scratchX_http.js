@@ -8,14 +8,14 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.get_blynk = function(location, callback) {
+    ext.get_blynk = function(blynkau, callback) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://cloud.blynk.cc:8080/' + location,
-              dataType: 'text',
+              url: 'http://cloud.blynk.cc:8080/' + blynkau,
+              dataType: 'jsonp',
               success: function( blynk_data ) {
                   // Got the data - parse it and return the temperature
-                  callback( blynk_data);
+                  callback( blynk_data );
               }
         });
     };
@@ -33,10 +33,10 @@
         });
     };
 
-     ext.get_pm = function(location, callback) {
+     ext.get_pm = function(lass_device, callback) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id='+location,
+              url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id=' + lass_device,
               dataType: 'jsonp',
               success: function( lass_data ) {
                   // Got the data - parse it and return the temperature
