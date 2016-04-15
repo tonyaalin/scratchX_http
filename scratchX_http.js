@@ -37,24 +37,32 @@
         });
     };
 
-     ext.get_pm = function(lass_device, callback) {
-        // Make an AJAX call to the Open Weather Maps API
+     ext.lass = function(device, callback){
         $.ajax({
-              url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id=' + lass_device,
-              dataType: 'jsonp',
-              success: function( lass_data ) {
-                  // Got the data - parse it and return the temperature
-                  lasspm = lass_data['s_d0'];
-                  callback(lasspm);
+              url: 'http://nrl.iis.sinica.edu.tw/LASS/last.php?device_id='+device,
+              success: function( data ) {
+                  var jsonObj = JSON.parse(data);
+                  //console.log(jsonObj);
+                  lassData.C = jsonObj.s_t0;
+                  lassData.H = jsonObj.s_h0;
+                  lassData.PM25 = jsonObj.s_d0;
+                  callback(true);
+              },
+              error: function(e){
+                  callback(e);
               }
         });
     };
+    
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['R', 'blynk Auth Token %s', 'get_blynk', 'e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10'],
             ['R', 'current temperature in city %s', 'get_temp', 'Boston, MA'],
-            ['R', 'LASS DEVICE= %s PM2.5', 'get_pm', 'FT1_001'],
+            ['R', 'LASS DEVICE= %s PM2.5', 'lass', 'FT1_001'],
+            ['R', 'LASS C', 'lassData.C'],
+            ['R', 'LASS H', 'lassData.H'],
+            ['R', 'LASS PM25', 'lassData.PM25'],
         ]
     };
 
