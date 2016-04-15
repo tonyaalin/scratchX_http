@@ -41,6 +41,7 @@
               success: function( lass_data ) {
                   // Got the data - parse it and return the temperature
                   lasspm = lass_data['s_d0'];
+                  console.log(lasspm);
                   callback(lasspm);
               }
         });
