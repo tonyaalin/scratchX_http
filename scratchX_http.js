@@ -15,11 +15,13 @@
               url: 'http://cloud.blynk.cc:8080/e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10',
               dataType: 'jsonp',
               timeout: 1000,
-              success: function( blynk_data ) {
+             success: function( blynk_data ) {
                   // Got the data - parse it and return the temperature
-                  callback(blynk_data);
+                //  callback(blynk_data);
+                return(blynk_data);
               }
         });
+        
     };
 
      ext.get_temp = function(location, callback) {
