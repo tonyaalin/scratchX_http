@@ -11,7 +11,8 @@
     ext.get_blynk = function(blynkau, callback) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://cloud.blynk.cc:8080/' + blynkau,
+              //url: 'http://cloud.blynk.cc:8080/' + blynkau,
+              url: 'http://cloud.blynk.cc:8080/e07c5fad00ac4bb5a477c31a7c06c6eb/pin/V10',
               dataType: 'jsonp',
               success: function( blynk_data ) {
                   // Got the data - parse it and return the temperature
