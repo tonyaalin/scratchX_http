@@ -12,11 +12,10 @@
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://cloud.blynk.cc:8080/' + location,
-              dataType: 'jsonp',
+              dataType: 'text',
               success: function( blynk_data ) {
                   // Got the data - parse it and return the temperature
-                  temperature = blynk_data;
-                  callback(temperature);
+                  callback( blynk_data);
               }
         });
     };
